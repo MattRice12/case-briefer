@@ -1,0 +1,12 @@
+<% if users.empty? %>
+  <h1>Be the first user!</h1>
+  <%= render partial: 'form', locals: { user: User.new } %>
+<% else %>
+  <ul>
+    <% users.each do |user| %>
+      <li>
+        <%= link_to user.email, user_path(user) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
